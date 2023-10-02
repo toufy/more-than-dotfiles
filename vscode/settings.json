@@ -1,0 +1,49 @@
+{
+    // --- general --- //
+    "telemetry.telemetryLevel": "off",
+    // workbench
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Dark Material Dracula",
+    "workbench.iconTheme": "vscode-icons",
+    // editor
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Cascadia Code",
+    "editor.fontSize": 14,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.detectIndentation": false,
+
+    // --- extensions --- //
+    // git
+    "git.autofetch": true,
+    // python
+    "python.analysis.typeCheckingMode": "strict",
+    // prettier
+    "prettier.htmlWhitespaceSensitivity": "strict",
+    "prettier.singleAttributePerLine": true,
+    "prettier.proseWrap": "always",
+    "prettier.tabWidth": 4,
+    // license
+    "license.author": "toufy <ar.toufic@protonmail.com>",
+    "license.year": "auto",
+    "license.filename": "LICENSE",
+    "license.default": "gpl-3.0",
+    "license.extension": "",
+
+    // --- languages --- //
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[dotenv]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[ignore]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    }
+}
