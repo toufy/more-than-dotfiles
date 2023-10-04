@@ -89,6 +89,8 @@ cat >"$SCRDIR"/dboxes/"$archbox_name"/.gitconfig <<EOF
     editor = vim
 [init]
     defaultBranch = main
+[credential]
+	helper = cache --timeout=5400
 EOF
 read -r -p "press enter to open .gitconfig for arch box in vim, modify and save it"
 vim "$SCRDIR"/dboxes/"$archbox_name"/.gitconfig
