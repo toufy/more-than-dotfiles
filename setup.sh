@@ -4,7 +4,7 @@
 set -e
 if [ "$EUID" == 0 ]; then
     echo "don't run as root"
-    exit
+    exit 1
 fi
 if ! command -v vim >/dev/null 2>&1; then
     echo "overlay/install vim, or replace 'vim' with your command of choice"
