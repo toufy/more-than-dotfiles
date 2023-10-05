@@ -39,7 +39,7 @@ cat >"$SCRDIR"/custom/vscode/settings.json <<EOF
 
     // --- extensions --- //
     //dev containers
-    "dev.containers.dockerPath": "/var/home/toufy/.local/bin/podman-host",
+    "dev.containers.dockerPath": "$HOME/.local/bin/podman-host",
     // git
     "git.autofetch": true,
     // python
