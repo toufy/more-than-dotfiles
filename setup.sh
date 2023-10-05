@@ -35,10 +35,11 @@ cat >"$SCRDIR"/custom/vscode/settings.json <<EOF
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.detectIndentation": false,
+    "editor.lineNumbers": "relative",
 
     // --- extensions --- //
     //dev containers
-    "dev.containers.dockerPath": "$HOME/.local/bin/podman-host",
+    "dev.containers.dockerPath": "/var/home/toufy/.local/bin/podman-host",
     // git
     "git.autofetch": true,
     // python
@@ -54,6 +55,9 @@ cat >"$SCRDIR"/custom/vscode/settings.json <<EOF
     "license.filename": "LICENSE",
     "license.default": "gpl-3.0",
     "license.extension": "",
+    // vim
+    "vim.ignorecase": false,
+    "vim.useSystemClipboard": true,
 
     // --- languages --- //
     "[java]": {
