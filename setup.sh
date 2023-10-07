@@ -39,7 +39,7 @@ cat >"$SCRDIR"/custom/vscode/settings.json <<EOF
 
     // --- extensions --- //
     //dev containers
-    "dev.containers.dockerPath": "$HOME/.local/bin/podman-host",
+    "dev.containers.dockerPath": "/var/home/toufy/.local/bin/podman-host",
     // git
     "git.autofetch": true,
     // python
@@ -58,6 +58,11 @@ cat >"$SCRDIR"/custom/vscode/settings.json <<EOF
     // vim
     "vim.ignorecase": false,
     "vim.useSystemClipboard": true,
+    // shellcheck
+    "shellcheck.enable": true,
+    "shellcheck.enableQuickFix": true,
+    "shellcheck.run": "onType",
+    "shellcheck.useWorkspaceRootAsCwd": true,
 
     // --- languages --- //
     "[java]": {
@@ -69,10 +74,19 @@ cat >"$SCRDIR"/custom/vscode/settings.json <<EOF
     "[shellscript]": {
         "editor.defaultFormatter": "foxundermoon.shell-format"
     },
-    "[dotenv]": {
+    "[dockerfile]": {
         "editor.defaultFormatter": "foxundermoon.shell-format"
     },
     "[ignore]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[jvmoptions]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[hosts]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[bats]": {
         "editor.defaultFormatter": "foxundermoon.shell-format"
     }
 }
