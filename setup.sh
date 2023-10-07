@@ -41,7 +41,9 @@ cat >"$SCRDIR"/custom/vscode/settings.json <<EOF
     //dev containers
     "dev.containers.dockerPath": "/var/home/toufy/.local/bin/podman-host",
     // git
-    "git.autofetch": true,
+    "git.autofetch": false,
+    "git.autoStash": false,
+    "git.allowForcePush": false,
     // python
     "python.analysis.typeCheckingMode": "strict",
     // prettier
