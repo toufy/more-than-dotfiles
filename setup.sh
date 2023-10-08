@@ -153,7 +153,7 @@ vim "$SCRDIR"/dboxes/"$archbox_name"/.gitconfig
 # install vscode flatpak if it doesn't exist and copy settings.js
 if ! flatpak list | grep -q com.visualstudio.code; then
     echo "vscode flatpak not found, installing"
-    flatpak install flathub com.visualstudio.code
+    flatpak install --assumeyes flathub com.visualstudio.code
 fi
 cp -f "$SCRDIR"/custom/vscode/settings.json "$HOME"/.var/app/com.visualstudio.code/config/Code/User/
 mkdir -p "$HOME"/.local/bin
