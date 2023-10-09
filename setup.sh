@@ -155,6 +155,7 @@ if ! flatpak list | grep -q com.visualstudio.code; then
     echo "vscode flatpak not found, installing"
     flatpak install --assumeyes flathub com.visualstudio.code
 fi
+mkdir -p "$HOME"/.var/app/com.visualstudio.code/config/Code/User
 cp -f "$SCRDIR"/custom/vscode/settings.json "$HOME"/.var/app/com.visualstudio.code/config/Code/User/
 mkdir -p "$HOME"/.local/bin
 # podman host wrapper (for dev containers extension)
