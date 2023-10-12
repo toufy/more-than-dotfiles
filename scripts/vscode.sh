@@ -89,7 +89,7 @@ fi
 # create config dir if it doesn't exist and copy settings.json
 mkdir -p "$HOME"/.var/app/com.visualstudio.code/config/Code/User
 cp -f "$SCRDIR"/custom/vscode/settings.json "$HOME"/.var/app/com.visualstudio.code/config/Code/User/
-mkdir -p "$HOME"/.local/bin
 
 # podman host wrapper (for dev containers extension)
+mkdir -p "$HOME"/.local/bin
 cp -f "$SCRDIR"/.local/bin/podman-host "$HOME"/.local/bin/
