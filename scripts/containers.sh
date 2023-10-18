@@ -12,12 +12,6 @@ echo "ubuntu box name:"
 read -r ubn_input
 ubuntubox_name=$(sed 's/[^a-zA-Z0-9_-]//g;s/\^//g' <(echo "$ubn_input"))
 
-# home directory for dev containers
-mkdir -p "$SCRDIR"/dboxes/"$archbox_name"
-mkdir -p "$SCRDIR"/dboxes/"$ubuntubox_name"
-mkdir -p "$HOME"/dboxes/"$archbox_name"
-mkdir -p "$HOME"/dboxes/"$ubuntubox_name"
-
 # check nvidia integration
 echo "integrate host nvidia drivers? [Y,n]"
 read -r ihnd
@@ -31,44 +25,45 @@ fi
 mkdir -p "$SCRDIR"/custom/distrobox
 cat >"$SCRDIR"/custom/distrobox/boxes.ini <<EOF
 [$fedorabox_name]
-additional_packages="git wget vim exa bat"
+additional_packages="git wget neovim exa bat"
 image=registry.fedoraproject.org/fedora-toolbox:latest
 pull=true
 init=false
 nvidia=$nvidia
 entry=false
 [$ubuntubox_name]
-additional_packages="git vim gcc"
+additional_packages="git neovim gcc"
 image=quay.io/toolbx-images/ubuntu-toolbox:latest
 pull=true
 init=true
 nvidia=$nvidia
 entry=false
 [$archbox_name]
-additional_packages="git vim python-pip python-pipenv python-poetry"
-home=$HOME/dboxes/$archbox_name
+additional_packages="git neovim python-pip python-pipenv python-poetry"
 image=docker.io/library/archlinux:latest
 pull=true
 init=true
 nvidia=$nvidia
 entry=false
 EOF
+read -r -p "press enter to open distrobox config in vim, modify and save it"
+vim "$SCRDIR"/custom/distrobox/boxes.ini
 
 # .gitconfig for arch container (main dev container)
-cat >"$SCRDIR"/dboxes/"$archbox_name"/.gitconfig <<EOF
+mkdir -p "$SCRDIR"/.config/git/config
+cat >"$SCRDIR"/.config/git/config <<EOF
 [user]
     name = toufy
     email = ar.toufic@protonmail.com
 [core]
-    editor = vim
+    editor = nvim
 [init]
     defaultBranch = main
 [credential]
     helper = cache --timeout=5400
 EOF
-read -r -p "press enter to open .gitconfig for arch box in vim, modify and save it"
-vim "$SCRDIR"/dboxes/"$archbox_name"/.gitconfig
+read -r -p "press enter to open gitconfig in vim, modify and save it"
+vim "$SCRDIR"/.config/git/config
 
 # create boxes and copy to home
 distrobox-assemble create --file "$SCRDIR"/custom/distrobox/boxes.ini
-cp -rf "$SCRDIR"/dboxes "$HOME"/

@@ -24,7 +24,7 @@ bash "$SCRDIR"/scripts/containers.sh "$SCRDIR"
 
 ### ---apply configs and copy to home--- ###
 # env vars
-cp -rf "$SCRDIR"/.config/environment.d "$HOME"/.config/
+cp -rf "$SCRDIR"/.config/ "$HOME"/
 
 # done
 echo "log out and back in"
