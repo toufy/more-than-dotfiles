@@ -17,14 +17,9 @@ fi
 SCRDIR=$(dirname "$0")
 
 ### ---setup devstuff--- ###
-# vscode
-bash "$SCRDIR"/scripts/vscode.sh "$SCRDIR"
+# env setup
+bash "$SCRDIR"/scripts/env.sh "$SCRDIR"
 # distrobox containers
 bash "$SCRDIR"/scripts/containers.sh "$SCRDIR"
-
-### ---apply configs and copy to home--- ###
-# env vars
-cp -rf "$SCRDIR"/.config/ "$HOME"/
-
 # done
 echo "log out and back in"

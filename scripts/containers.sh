@@ -32,14 +32,14 @@ init=false
 nvidia=$nvidia
 entry=false
 [$ubuntubox_name]
-additional_packages="git neovim gcc"
+additional_packages="systemd git neovim gcc exa bat"
 image=quay.io/toolbx-images/ubuntu-toolbox:latest
 pull=true
 init=true
 nvidia=$nvidia
 entry=false
 [$archbox_name]
-additional_packages="git neovim python-pip python-pipenv python-poetry"
+additional_packages="systemd git neovim python-pip python-pipenv python-poetry exa bat"
 image=docker.io/library/archlinux:latest
 pull=true
 init=true
@@ -48,22 +48,6 @@ entry=false
 EOF
 read -r -p "press enter to open distrobox config in vim, modify and save it"
 vim "$SCRDIR"/custom/distrobox/boxes.ini
-
-# .gitconfig for arch container (main dev container)
-mkdir -p "$SCRDIR"/.config/git/config
-cat >"$SCRDIR"/.config/git/config <<EOF
-[user]
-    name = toufy
-    email = ar.toufic@protonmail.com
-[core]
-    editor = nvim
-[init]
-    defaultBranch = main
-[credential]
-    helper = cache --timeout=5400
-EOF
-read -r -p "press enter to open gitconfig in vim, modify and save it"
-vim "$SCRDIR"/.config/git/config
 
 # create boxes and copy to home
 distrobox-assemble create --file "$SCRDIR"/custom/distrobox/boxes.ini
