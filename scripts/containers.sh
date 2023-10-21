@@ -32,17 +32,17 @@ init=false
 nvidia=$nvidia
 entry=false
 [$ubuntubox_name]
-additional_packages="systemd git neovim gcc exa bat"
+additional_packages="git neovim gcc exa bat"
 image=quay.io/toolbx-images/ubuntu-toolbox:latest
 pull=true
-init=true
+init=false
 nvidia=$nvidia
 entry=false
 [$archbox_name]
-additional_packages="systemd git neovim python-pip python-pipenv python-poetry exa bat"
+additional_packages="git neovim python-pip python-pipenv python-poetry exa bat"
 image=docker.io/library/archlinux:latest
 pull=true
-init=true
+init=false
 nvidia=$nvidia
 entry=false
 EOF
