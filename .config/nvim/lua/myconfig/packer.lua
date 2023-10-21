@@ -35,5 +35,7 @@ return require('packer').startup(function(use)
 			{'L3MON4D3/LuaSnip'},
 		}
 	}
+	-- gitsigns
+	use 'lewis6991/gitsigns.nvim'
 end
 )

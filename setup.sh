@@ -14,7 +14,7 @@ if ! command -v distrobox >/dev/null 2>&1; then
     echo "overlay/install distrobox"
     exit 1
 fi
-SCRDIR=$(dirname "$0")
+SCRDIR=$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )
 
 ### ---setup devstuff--- ###
 # env setup
