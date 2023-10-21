@@ -21,5 +21,8 @@ SCRDIR=$(dirname "$0")
 bash "$SCRDIR"/scripts/env.sh "$SCRDIR"
 # distrobox containers
 bash "$SCRDIR"/scripts/containers.sh "$SCRDIR"
+# shell setup
+bash "$SCRDIR"/scripts/shell.sh "$SCRDIR"
 # done
 echo "log out and back in"
+

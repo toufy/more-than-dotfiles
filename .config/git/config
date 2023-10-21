@@ -1,0 +1,10 @@
+[user]
+    name = toufy
+    email = ar.toufic@protonmail.com
+[core]
+    editor = nvim
+[init]
+    defaultBranch = main
+[credential]
+    helper = cache --timeout=5400
+

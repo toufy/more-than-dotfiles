@@ -1,22 +1,23 @@
 #!/bin/bash
 SCRDIR=$1
 
-# .gitconfig
-mkdir -p "$SCRDIR"/.config/git/
-cat >"$SCRDIR"/.config/git/config <<EOF
-[user]
-    name = toufy
-    email = ar.toufic@protonmail.com
-[core]
-    editor = nvim
-[init]
-    defaultBranch = main
-[credential]
-    helper = cache --timeout=5400
-EOF
+### .gitconfig
 read -r -p "press enter to open gitconfig in vim, modify and save it"
 vim "$SCRDIR"/.config/git/config
 
-# .config/
-cp -rf "$SCRDIR"/.config/ "$HOME"/
+### ~/.config/
+# `unlink()` workaround
+if [ -d "$HOME"/.config/environment.d ]; then # preserve ~/.config/environment.d
+	mv "$HOME"/.config/environment.d/* "$SCRDIR"/.config/environment.d/
+fi
+for cdir in "$SCRDIR"/.config/*; do
+	dname=$(basename "$cdir")
+	homeconf="$HOME"/.config
+	currdir="$homeconf"/"$dname"
+	if [ -d "$currdir" ]; then
+		rm -rf "$currdir"
+	fi
+done
+
+ln -sf "$SCRDIR"/.config/* "$HOME"/.config/
 
