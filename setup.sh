@@ -19,6 +19,8 @@ SCRDIR=$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )
 ### ---setup devstuff--- ###
 # env setup
 bash "$SCRDIR"/scripts/env.sh "$SCRDIR"
+# flatpak
+bash "$SCRDIR"/scripts/flatpak.sh "$SCRDIR"
 # distrobox containers
 bash "$SCRDIR"/scripts/containers.sh "$SCRDIR"
 # shell setup
