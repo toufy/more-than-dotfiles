@@ -37,5 +37,13 @@ return require('packer').startup(function(use)
 	}
 	-- gitsigns
 	use 'lewis6991/gitsigns.nvim'
+	-- conform
+	use({
+		"stevearc/conform.nvim",
+		config = function()
+			require("conform").setup()
+		end,
+	})
+
 end
 )
