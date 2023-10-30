@@ -17,5 +17,5 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 6
 -- 50ms update time
 vim.opt.updatetime = 50
--- 100 character page margin 
-vim.opt.colorcolumn = '100'
+-- 100 character page margin
+vim.opt.colorcolumn = "100"

@@ -1,16 +1,26 @@
-require'nvim-treesitter.configs'.setup {
-	ensure_installed = { 
-		"bash", "lua", "vim", "vimdoc", "query", "python",
-		"c", "java", "javascript", "typescript", "dart", "css",
-		"html", "cpp"
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"bash",
+		"lua",
+		"vim",
+		"vimdoc",
+		"query",
+		"python",
+		"c",
+		"java",
+		"javascript",
+		"typescript",
+		"dart",
+		"css",
+		"html",
+		"cpp",
 	},
 	sync_install = false,
 	auto_install = true,
-	ignore_install = { },
+	ignore_install = {},
 	highlight = {
 		enable = true,
-		disable = { },
-		disable = function(lang, buf)
+		disable = function(_, buf)
 			local max_filesize = 100 * 1024 -- 100 KB
 			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
 			if ok and stats and stats.size > max_filesize then
@@ -19,4 +29,4 @@ require'nvim-treesitter.configs'.setup {
 		end,
 		additional_vim_regex_highlighting = false,
 	},
-}
+})

@@ -7,10 +7,11 @@ require("conform").setup({
 	},
 	formatters = {
 		clang_format = {
-			inherit = false,
-			command = "clang-format",
-			args = { "--style=Microsoft", "--sort-includes" },
-		}
+			prepend_args = { "--style=Microsoft", "--sort-includes" },
+		},
+		stylua = {
+			prepend_args = { "--column-width", "100" },
+		},
 	},
 	format_on_save = {
 		lsp_fallback = false,
@@ -19,4 +20,3 @@ require("conform").setup({
 	log_level = vim.log.levels.ERROR,
 	notify_on_error = true,
 })
-
