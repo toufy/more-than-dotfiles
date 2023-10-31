@@ -1,29 +1,24 @@
 require("mason").setup({})
 local mason_lspconfig = require("mason-lspconfig")
-local lsp_zero = require("lsp-zero")
 local lspconfig = require("lspconfig")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-lsp_zero.on_attach(function(_, bufnr)
-	-- default keybinds
-	lsp_zero.default_keymaps({ buffer = bufnr })
-end)
+-- temporary solution to setup all servers, then customize select ones
+local servers =
+	{ "lua_ls", "pyright", "bashls", "clangd", "jdtls", "html", "cssls", "eslint", "jsonls" }
+for _, lsvr in ipairs(servers) do
+	require("lspconfig")[lsvr].setup({
+		capabilities = capabilities,
+	})
+end
 
 mason_lspconfig.setup({
-	ensure_installed = {
-		-- lua
-		"lua_ls",
-		-- python
-		"pyright",
-		-- bash
-		"bashls",
-		-- c/c++
-		"clangd",
-	},
+	ensure_installed = servers,
 	handlers = {
-		lsp_zero.default_setup,
 		-- lua
 		lua_ls = function()
 			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
 				-- setup for neovim config #BEGIN
 				on_init = function(client)
 					local path = client.workspace_folders[1].name
@@ -58,6 +53,7 @@ mason_lspconfig.setup({
 		-- python
 		pyright = function()
 			lspconfig.pyright.setup({
+				capabilities = capabilities,
 				settings = {
 					python = {
 						analysis = {

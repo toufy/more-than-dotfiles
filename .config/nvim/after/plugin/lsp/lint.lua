@@ -4,6 +4,7 @@ local pylint = lint.linters.pylint
 -- linters
 lint.linters_by_ft = {
 	python = { "pylint" },
+	bash = { "shellcheck" },
 }
 
 -- linter configs

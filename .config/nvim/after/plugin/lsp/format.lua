@@ -4,6 +4,11 @@ require("conform").setup({
 		python = { "isort", "black" },
 		c = { "clang_format" },
 		cpp = { "clang_format" },
+		java = { "google-java-format" },
+		html = { "prettier" },
+		css = { "prettier" },
+		javascript = { "prettier" },
+		json = { "prettier" },
 	},
 	formatters = {
 		clang_format = {
@@ -11,6 +16,20 @@ require("conform").setup({
 		},
 		stylua = {
 			prepend_args = { "--column-width", "100" },
+		},
+		prettier = {
+			prepend_args = {
+				"--print-width",
+				"100",
+				"--tab-width",
+				"4",
+				"--use-tabs",
+				"--prose-wrap",
+				"always",
+				"--html-whitespace-sensitivity",
+				"strict",
+				"--single-attribute-per-line",
+			},
 		},
 	},
 	format_on_save = {

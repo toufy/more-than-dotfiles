@@ -1,14 +1,9 @@
 vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function(use)
+	-- ### general ### --
 	-- packer
 	use("wbthomason/packer.nvim")
-	-- telescope
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.4",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
-	-- catppuccin
+	-- theme (catppuccin)
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
@@ -16,32 +11,46 @@ return require("packer").startup(function(use)
 			vim.cmd("colorscheme catppuccin-mocha")
 		end,
 	})
+
+	-- ### misc ### --
+	-- telescope
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.4",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	-- treesitter
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	-- undotree
 	use("mbbill/undotree")
-	-- lsp-zero
-	use({
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
-		requires = {
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
-			{ "neovim/nvim-lspconfig" },
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "L3MON4D3/LuaSnip" },
-		},
-	})
 	-- gitsigns
 	use("lewis6991/gitsigns.nvim")
-	-- conform
+
+	-- ### LSP config ### --
+	-- lspconfig with mason
+	use("neovim/nvim-lspconfig")
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+	-- linting
+	use("mfussenegger/nvim-lint")
+	-- completions & snippets
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-cmdline")
+	use("hrsh7th/nvim-cmp")
+	use({
+		"L3MON4D3/LuaSnip",
+		run = "make install_jsregexp",
+		requires = { "rafamadriz/friendly-snippets" },
+	})
+	use("saadparwaiz1/cmp_luasnip")
+	use("onsails/lspkind.nvim")
+	-- formatting
 	use({
 		"stevearc/conform.nvim",
 		config = function()
 			require("conform").setup()
 		end,
 	})
-	-- nvim-lint
-	use("mfussenegger/nvim-lint")
 end)
