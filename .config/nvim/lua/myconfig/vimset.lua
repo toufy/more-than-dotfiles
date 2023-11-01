@@ -5,6 +5,7 @@ vim.opt.relativenumber = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
+vim.opt.expandtab = false
 vim.opt.smartindent = true
 -- no line wrap
 vim.opt.wrap = false
@@ -17,5 +18,5 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 6
 -- 50ms update time
 vim.opt.updatetime = 50
--- 100 character page margin
-vim.opt.colorcolumn = "100"
+-- highlight cursor
+vim.opt.cursorline = true

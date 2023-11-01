@@ -12,11 +12,11 @@ source "$HOME"/.bash/aliases.sh
 # check exit code of previous command
 excode() {
     if [[ $? == 0 ]]; then
-        printf '\033[01;32m:)\033[0m'
+        echo -e '\033[01;32m:)\033[0m'
     else
-        printf '\033[01;31mx(\033[0m'
+        echo -e '\033[01;31mx(\033[0m'
     fi
 }
 
 ### ---prompt--- ###
-PS1='$(excode) \u@\H:\[\e[4;32m\]\w\[\e[0m\]$ '
+PS1='$(excode) \u@\H\[\e[36m\]::\[\e[4;37m\]\w\[\e[0m\]\n\[\e[36m\]$\[\e[0m\] '

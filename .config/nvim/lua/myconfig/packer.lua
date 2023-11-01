@@ -8,9 +8,16 @@ return require("packer").startup(function(use)
 		"catppuccin/nvim",
 		as = "catppuccin",
 		config = function()
-			vim.cmd("colorscheme catppuccin-mocha")
+			vim.cmd("colorscheme catppuccin")
 		end,
 	})
+	-- status line
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
+	-- indent guides
+	use("lukas-reineke/indent-blankline.nvim")
 
 	-- ### misc ### --
 	-- telescope
