@@ -11,6 +11,19 @@ local function pyvenv(project_root)
 		local match = vim.fn.glob(path.join(project_root, pattern, "pyvenv.cfg"))
 		if match ~= "" then
 			local venv_dir = path.dirname(match)
+			-- pylint init hook (i'm gonna cry)
+			local packages = vim.fn.glob(path.join(venv_dir, "lib", "*", "site-packages"))
+			if packages ~= "" then
+				if vim.fn.glob(path.join(project_root, ".pylintrc")) == "" then
+					vim.fn.system(
+						'echo -e "[MAIN]\ninit-hook=\'import sys; sys.path.append(\\"'
+							.. packages
+							.. '\\")\'" >'
+							.. project_root
+							.. "/.pylintrc"
+					)
+				end
+			end
 			vim.env.VIRTUAL_ENV = venv_dir
 			return path.join(venv_dir, "bin", "python")
 		end
