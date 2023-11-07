@@ -1,41 +1,24 @@
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		python = { "isort", "black" },
-		c = { "clang_format" },
-		cpp = { "clang_format" },
-		java = { "google-java-format" },
-		html = { "prettier" },
-		css = { "prettier" },
-		javascript = { "prettier" },
-		json = { "prettier" },
+local formatter = require("formatter")
+local formatters = require("formatters")
+
+formatter.setup({
+	logging = true,
+	log_level = vim.log.levels.WARN,
+	filetype = {
+		lua = { formatters.stylua.format },
+		python = { formatters.isort.format, formatters.black.format },
+		java = { formatters.google_java_format.format },
+		c = { formatters.clang_format.format },
+		cpp = { formatters.clang_format.format },
+		html = { formatters.prettier.format },
+		css = { formatters.prettier.format },
+		javascript = { formatters.prettier.format },
+		json = { formatters.prettier.format },
 	},
-	formatters = {
-		clang_format = {
-			prepend_args = { "--style=Microsoft", "--sort-includes" },
-		},
-		stylua = {
-			prepend_args = { "--column-width", "100" },
-		},
-		prettier = {
-			prepend_args = {
-				"--print-width",
-				"100",
-				"--tab-width",
-				"4",
-				"--use-tabs",
-				"--prose-wrap",
-				"always",
-				"--html-whitespace-sensitivity",
-				"strict",
-				"--single-attribute-per-line",
-			},
-		},
-	},
-	format_on_save = {
-		lsp_fallback = false,
-		timeout_ms = 500,
-	},
-	log_level = vim.log.levels.ERROR,
-	notify_on_error = true,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	callback = function()
+		vim.cmd("FormatWriteLock")
+	end,
 })

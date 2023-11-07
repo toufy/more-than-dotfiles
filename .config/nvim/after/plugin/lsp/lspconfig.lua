@@ -1,4 +1,4 @@
--- SETUP --
+-- setup
 require("mason").setup({})
 local langs = require("langs")
 local mason_lspconfig = require("mason-lspconfig")
@@ -7,7 +7,7 @@ local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 local servers =
 	{ "lua_ls", "pyright", "bashls", "clangd", "jdtls", "html", "cssls", "eslint", "jsonls" }
 
--- CONFIG --
+-- config
 mason_lspconfig.setup({
 	ensure_installed = servers,
 	handlers = {

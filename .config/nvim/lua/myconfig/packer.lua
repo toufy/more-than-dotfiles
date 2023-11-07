@@ -54,10 +54,5 @@ return require("packer").startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 	use("onsails/lspkind.nvim")
 	-- formatting
-	use({
-		"stevearc/conform.nvim",
-		config = function()
-			require("conform").setup()
-		end,
-	})
+	use("mhartington/formatter.nvim")
 end)
