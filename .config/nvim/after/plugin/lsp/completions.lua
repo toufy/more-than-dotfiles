@@ -2,6 +2,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 local lspkind = require("lspkind")
+local keymaps = require("keymaps.completions")
 
 cmp.setup({
 	snippet = {
@@ -18,18 +19,7 @@ cmp.setup({
 		}),
 	},
 
-	mapping = {
-		["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-		["<C-y>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Insert,
-			select = true,
-		}),
-		["<C-e>"] = cmp.mapping({
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		}),
-	},
+	mapping = keymaps,
 
 	sources = cmp.config.sources({
 		{ name = "luasnip" },

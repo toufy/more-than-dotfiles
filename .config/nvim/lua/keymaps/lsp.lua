@@ -1,11 +1,3 @@
--- space as leader
-vim.g.mapleader = " "
--- explorer with ` cd`
-vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
--- split view
-vim.keymap.set("n", "<leader>vs", vim.cmd.vsplit)
-vim.keymap.set("n", "<leader>hs", vim.cmd.split)
--- lsp stuff
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function()
 		local bufmap = function(mode, lhs, rhs)
@@ -17,7 +9,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- go to definition
 		bufmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 		-- go to declaration
-		bufmap("n", "gs", "<cmd>lua vim.lsp.buf.declaration()<cr>")
+		bufmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
 		-- list references
 		bufmap("n", "gl", "<cmd>lua vim.lsp.buf.references()<cr>")
 		-- rename references

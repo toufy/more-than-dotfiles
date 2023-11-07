@@ -1,1 +1,2 @@
 require("myconfig")
+require("keymaps")

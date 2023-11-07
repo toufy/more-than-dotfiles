@@ -23,8 +23,7 @@ return require("packer").startup(function(use)
 	-- telescope
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.4",
-		requires = { { "nvim-lua/plenary.nvim" } },
+		requires = { "nvim-lua/plenary.nvim" },
 	})
 	-- treesitter
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
@@ -32,6 +31,11 @@ return require("packer").startup(function(use)
 	use("mbbill/undotree")
 	-- gitsigns
 	use("lewis6991/gitsigns.nvim")
+	-- harpoon
+	use({
+		"ThePrimeagen/harpoon",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
 
 	-- ### LSP config ### --
 	-- lspconfig with mason
