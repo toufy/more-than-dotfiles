@@ -1,17 +1,9 @@
 local lint = require("lint")
-local pylint = lint.linters.pylint
 
 -- linters
 lint.linters_by_ft = {
-	python = { "pylint" },
+	python = { "flake8" },
 	bash = { "shellcheck" },
-}
-
--- linter configs
-pylint.args = {
-	"-f",
-	"json",
-	"--docstring-min-length=50",
 }
 
 -- lint autocmd

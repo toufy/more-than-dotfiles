@@ -1,4 +1,5 @@
 local M = {}
+local utils = require("myutils")
 
 M.format = function()
 	return {
@@ -14,7 +15,9 @@ M.format = function()
 			"--html-whitespace-sensitivity",
 			"strict",
 			"--single-attribute-per-line",
+			utils.file_utils.get_buffer_name(),
 		},
+		stdin = true,
 	}
 end
 

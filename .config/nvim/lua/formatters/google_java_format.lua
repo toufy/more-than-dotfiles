@@ -1,12 +1,12 @@
 local M = {}
-local util = require("formatter.util")
+local utils = require("myutils")
 
 M.format = function()
 	return {
 		exe = "google-java-format",
 		args = {
 			"--aosp",
-			util.escape_path(util.get_current_buffer_file_name()),
+			utils.file_utils.get_buffer_name(),
 		},
 		stdin = true,
 	}

@@ -14,17 +14,39 @@ if ! command -v distrobox >/dev/null 2>&1; then
     echo "overlay/install distrobox"
     exit 1
 fi
-SCRDIR=$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )
+SCRDIR=$(
+    cd -- "$(dirname "$0")" >/dev/null 2>&1
+    pwd -P
+)
 
 ### ---setup devstuff--- ###
-# env setup
-bash "$SCRDIR"/scripts/env.sh "$SCRDIR"
-# flatpak
-bash "$SCRDIR"/scripts/flatpak.sh "$SCRDIR"
-# distrobox containers
-bash "$SCRDIR"/scripts/containers.sh "$SCRDIR"
-# shell setup
-bash "$SCRDIR"/scripts/shell.sh "$SCRDIR"
-# done
-echo "log out and back in"
-
+IFS=@
+OPTDIR="$SCRDIR"/scripts/operations
+while true; do
+    echo -e "\n---[select operation]---"
+    PS3='option: '
+    operations=("create configs" "setup environment" "install software" "quit")
+    select _ in "${operations[@]}"; do
+        case $REPLY in
+        "1")
+            bash "$OPTDIR"/create_configs.sh "$SCRDIR"
+            break
+            ;;
+        "2")
+            bash "$OPTDIR"/setup_environment.sh "$SCRDIR"
+            break
+            ;;
+        "3")
+            bash "$OPTDIR"/install_software.sh "$SCRDIR"
+            break
+            ;;
+        "4")
+            break 2
+            ;;
+        *)
+            echo "invalid option $REPLY"
+            break
+            ;;
+        esac
+    done
+done

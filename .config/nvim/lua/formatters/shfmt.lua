@@ -2,12 +2,10 @@ local M = {}
 
 M.format = function()
 	return {
-		exe = "isort",
+		exe = "shfmt",
 		args = {
-			"-q",
-			"--profile",
-			"black",
-			"-",
+			"-i",
+			"4",
 		},
 		stdin = true,
 	}

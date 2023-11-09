@@ -1,4 +1,5 @@
 local M = {}
+local utils = require("myutils")
 
 M.format = function()
 	return {
@@ -6,7 +7,12 @@ M.format = function()
 		args = {
 			"--column-width",
 			"100",
+			"--stdin-filepath",
+			utils.file_utils.get_buffer_name(),
+			"--",
+			"-",
 		},
+		stdin = true,
 	}
 end
 
