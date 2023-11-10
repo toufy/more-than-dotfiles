@@ -10,7 +10,18 @@ check_state() {
 while true; do
     echo -e "\n---[select operation]---"
     PS3='option: '
-    operations=("$(check_state copy_shell_configs)" "$(check_state setup_distrobox)" "quit")
+    operations=(
+        #1
+        "$(check_state copy_shell_configs)"
+        #2
+        "$(check_state user_dirs)"
+        #3
+        "$(check_state kitty_terminfo)"
+        #4
+        "$(check_state setup_distrobox)"
+        #5
+        "quit"
+    )
     select _ in "${operations[@]}"; do
         case $REPLY in
         "1")
@@ -19,11 +30,21 @@ while true; do
             break
             ;;
         "2")
+            bash "$RUNDIR"/user_dirs.sh
+            echo "[x] rename user dirs" >"$CHECKDIR"/user_dirs
+            break
+            ;;
+        "3")
+            bash "$RUNDIR"/kitty_terminfo.sh
+            echo "[x] copy kitty terminfo" >"$CHECKDIR"/kitty_terminfo
+            break
+            ;;
+        "4")
             bash "$RUNDIR"/setup_distrobox.sh "$SCRDIR"
             echo "[x] setup distrobox" >"$CHECKDIR"/setup_distrobox
             break
             ;;
-        "3")
+        "5")
             break 2
             ;;
         *)

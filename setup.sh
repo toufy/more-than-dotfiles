@@ -1,6 +1,6 @@
 #!/bin/bash
 
-### ---some safety checks--- ###
+### ---safety checks--- ###
 set -e
 if [ "$EUID" == 0 ]; then
     echo "don't run as root"
@@ -19,7 +19,7 @@ SCRDIR=$(
     pwd -P
 )
 
-### ---setup devstuff--- ###
+### ---setup--- ###
 IFS=@
 OPTDIR="$SCRDIR"/scripts/operations
 while true; do
