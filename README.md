@@ -29,13 +29,13 @@ running `python setup.py` will show an interactive prompt, you must never run th
 make sure to modify relevant parts before running the script and performing operations.
 these are found in the following places:
 
-- <project_dir>/.config: general config files that get symlinked to "$HOME"/.config/
-- <project_dir>/etc: these get copied with `-f` to /etc, be very careful modifying them
-- [ <project_dir>/.bash <project_dir>/.bashrc <project_dir>/.bash_profile ]: shell configs, they get symlinked to "$HOME"/
-- <project_dir>/boxes.ini: distrobox setup file, this is used to create the containers
+- `<project_dir>/.config`: general config files that get symlinked to "$HOME"/.config/
+- `<project_dir>/etc`: these get copied with `-f` to /etc, be very careful modifying them
+- [ `<project_dir>/.bash` `<project_dir>/.bashrc` `<project_dir>/.bash_profile` ]: shell configs, they get symlinked to "$HOME"/
+- `<project_dir>/boxes.ini`: distrobox setup file, this is used to create the containers
 
 any of these config files overwrite existing ones.
-if you have something that you don't want overwritten, modify the scripts in <project_dir>/scripts.
+if you have something that you don't want overwritten, modify the scripts in `<project_dir>/scripts`.
 
 a majority of the config is symlinked, not copied.
 this is intentional, to reflect any changes to the project's directory.
