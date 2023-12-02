@@ -1,4 +1,4 @@
-# more-than-dotfiles (WIP)
+# more-than-dotfiles
 
 this is just a script to automate the setup of my basic/template development and home environment.
 
@@ -41,3 +41,7 @@ a majority of the config is symlinked, not copied.
 this is intentional, to reflect any changes to the project's directory.
 
 it should be safe to run the script from anywhere, but it's safer to `cd` into the script's directory before running it.
+
+## note
+*this is, and probably forever will be, a work in progress.
+some parts i claimed "it includes" may be missing, and will be gradually added.
