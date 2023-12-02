@@ -1,4 +1,3 @@
--- setup
 local lspconfig = require("lspconfig")
 local path = require("lspconfig.util").path
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -37,5 +36,4 @@ M.handle_pyright = function()
 	})
 end
 
--- return table
 return M

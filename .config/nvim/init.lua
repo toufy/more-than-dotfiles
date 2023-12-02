@@ -1,2 +1,1 @@
 require("myconfig")
-require("keymaps")

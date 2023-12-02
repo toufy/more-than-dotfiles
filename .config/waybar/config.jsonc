@@ -1,0 +1,88 @@
+{
+	// ---bar--- //
+	"layer": "top",
+	"position": "top",
+	"modules-left": ["hyprland/workspaces", "hyprland/window"],
+	"modules-center": ["clock"],
+	"modules-right": ["pulseaudio", "network", "battery"],
+
+	// ---modules--- //
+	// workspaces
+	"hyprland/workspaces": {
+		"all-outputs": true,
+		"on-click": "activate",
+		"format": "{icon}",
+		"format-icons": {
+			"1": "I",
+			"2": "II",
+			"3": "III",
+			"4": "IV",
+			"5": "V",
+			"6": "VI",
+			"7": "VII",
+			"8": "VIII",
+			"9": "IX",
+			"10": "X"
+		}
+	},
+	// active window name
+	"hyprland/window": {
+		"format": "   {}",
+		"max-length": 60
+	},
+	// time and date
+	"clock": {
+		"format": "{:%A, %B %d - %T}",
+		"timezones": ["", "Asia/Jakarta"],
+		"tooltip-format": "{calendar}\n\n{:%Z %z%n%d/%m/%Y%n%r}",
+		"interval": 1,
+		"actions": {
+			"on-click": "tz_up",
+			"on-click-right": "tz_down"
+		}
+	},
+	// audio
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": "󰝟 ",
+		"format-bluetooth": "󰗾 {volume}%",
+		"format-bluetooth-muted": "󰗿 ",
+		"format-source": " {volume}%",
+		"format-source-muted": " ",
+		"format-icons": {
+			"default": ["󰕿", "󰖀", "󰕾"]
+		},
+		"scroll-step": 5,
+		"on-click": "pamixer -t",
+		"on-scroll-up": "pamixer -i 5",
+		"on-scroll-down": "pamixer -d 5",
+		"on-click-right": "pavucontrol"
+	},
+	// wifi
+	"network": {
+		"interface": "wlan0",
+		"format-wifi": "{icon} {essid}",
+		"format-disconnected": "󰤮 {ifname}",
+		"format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+		"tooltip-format-wifi": "interface: {ifname}\nconnection: wifi\nnetwork: {essid}\nsignal strength: ({signalStrength}%)",
+		"tooltip-format-disconnected": "interface: {ifname}\nconnection: disconnected",
+		"on-click": "kitty -- nmtui"
+	},
+	// battery
+	"battery": {
+		"bat": "BAT0",
+		"states": {
+			"discharging": 99,
+			"warning": 20,
+			"critical": 10
+		},
+		"format": "{icon} {capacity}%",
+		"format-warning": "!{icon} {capacity}%",
+		"format-critical": "!{icon} {capacity}%",
+		"format-charging": "󱐋{icon} {capacity}%",
+		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰁿", "󰂁", "󰂂", "󰁹"],
+		"tooltip": true,
+		"tooltip-format": "{capacity}%\n{power} W\n{time}",
+		"interval": 5
+	}
+}

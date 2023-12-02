@@ -1,0 +1,57 @@
+/* catppuccin mocha, based on: https://github.com/prtce/wofi */
+@define-color accent #cba6f7;
+@define-color txt #cad3f5;
+@define-color bg #24273a;
+@define-color overlay #494d64;
+@define-color green #a6e3a1;
+
+* {
+	font-family: "JetBrains Mono Nerd Font", monospace;
+	font-size: 12px;
+}
+window {
+	margin: 0px;
+	padding: 10px;
+	border: 3px solid @accent;
+	border-radius: 7px;
+	background-color: @bg;
+}
+#inner-box {
+	margin: 5px;
+	padding: 10px;
+	border: none;
+	background-color: @bg;
+}
+#outer-box {
+	margin: 5px;
+	padding: 10px;
+	border: none;
+	background-color: @bg;
+}
+#scroll {
+	margin: 0px;
+	padding: 10px;
+	border: none;
+}
+#input {
+	margin: 5px;
+	padding: 10px;
+	border: 1px solid @accent;
+	color: @accent;
+	background-color: @bg2;
+}
+#text {
+	margin: 5px;
+	padding: 10px;
+	border: none;
+	color: @txt;
+}
+#entry #text {
+	color: @txt;
+}
+#entry:selected {
+	background-color: @accent;
+}
+#entry:selected #text {
+	color: @green;
+}

@@ -1,0 +1,11 @@
+mode=drun
+height=35%
+width=35%
+prompt=drun: 
+allow_images=true
+hide_scroll=true
+insensitive=true
+columns=1
+sort_order=alphabetical
+gtk_dark=true
+show_all=false

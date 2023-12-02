@@ -1,0 +1,9 @@
+[Trigger]
+Operation=Upgrade
+Type=Package
+Target=refind
+
+[Action]
+Description = update and sign refind
+When=PostTransaction
+Exec=/usr/bin/refind-install --yes && /usr/bin/sbctl -s sbctl sign -s /boot/EFI/refind/refind_x64.efi

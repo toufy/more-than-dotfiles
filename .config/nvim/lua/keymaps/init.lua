@@ -1,5 +1,0 @@
-require("keymaps.harpoon")
-require("keymaps.lsp")
-require("keymaps.telescope")
-require("keymaps.undotree")
-require("keymaps.vimcmd")

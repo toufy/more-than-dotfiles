@@ -14,6 +14,7 @@ formatter.setup({
 		css = { formatters.prettier.format },
 		javascript = { formatters.prettier.format },
 		json = { formatters.prettier.format },
+		jsonc = { formatters.prettier.format },
 		sh = { formatters.shfmt.format },
 	},
 })

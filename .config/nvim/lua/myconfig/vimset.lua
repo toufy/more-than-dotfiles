@@ -20,6 +20,7 @@ vim.opt.scrolloff = 6
 vim.opt.updatetime = 50
 -- highlight cursor
 vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 -- fuck touchpads
 vim.opt.mouse = nil
 -- yank/paste to/from clipboard

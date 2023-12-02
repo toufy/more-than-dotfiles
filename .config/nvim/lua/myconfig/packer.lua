@@ -3,14 +3,8 @@ return require("packer").startup(function(use)
 	-- ### general ### --
 	-- packer
 	use("wbthomason/packer.nvim")
-	-- theme (catppuccin)
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-		config = function()
-			vim.cmd("colorscheme catppuccin")
-		end,
-	})
+	-- theme
+	use({ "catppuccin/nvim", as = "catppuccin" })
 	-- status line
 	use({
 		"nvim-lualine/lualine.nvim",
@@ -36,6 +30,8 @@ return require("packer").startup(function(use)
 		"ThePrimeagen/harpoon",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
+	-- colorizer
+	use("norcalli/nvim-colorizer.lua")
 
 	-- ### LSP config ### --
 	-- lspconfig with mason

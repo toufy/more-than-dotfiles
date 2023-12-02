@@ -18,10 +18,19 @@ excode() {
     fi
 }
 
+### ---settings--- ###
+# completions
+set show-all-if-ambiguous on
+# colored completions
+set colored-stats On
+set mark-symlinked-directories On
+set colored-completion-prefix On
+set menu-complete-display-prefix On
+
 ### ---prompt--- ###
 PS1='$(excode) \u@\H\[\e[36m\]::\[\e[4;37m\]\w\[\e[0m\]\n\[\e[36m\]$\[\e[0m\] '
 
 ### ---direnv--- ###
 if command -v direnv >/dev/null 2>&1; then
-	eval "$(direnv hook bash)"
+    eval "$(direnv hook bash)"
 fi

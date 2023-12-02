@@ -1,0 +1,84 @@
+/* ---import--- */
+@import "styles/catppuccin-mocha.css";
+/* ---global styles--- */
+* {
+	border: none;
+	min-height: 0;
+	padding: 0;
+	margin: 0;
+	font-family: JetBrains Mono Nerd Font;
+	font-size: 10px;
+}
+/* tooltips */
+tooltip {
+	background: @base;
+	border: 1px solid @mauve;
+}
+/* bar */
+window#waybar {
+	background: @base;
+	border-bottom: 2px solid @mauve;
+}
+/* modules */
+.modules-left,
+.modules-center,
+.modules-right {
+	padding: 2px;
+	color: @base;
+	background: @pink;
+	border-radius: 0.3rem;
+	margin: 4px 2px 6px 2px;
+}
+#workspaces,
+#window,
+#clock,
+#pulseaudio,
+#network,
+#battery {
+	background: @base;
+	color: @text;
+	border-radius: 0.2rem;
+	padding: 0 6px 0 6px;
+	margin: 0 2px 0 2px;
+}
+/* workspaces */
+#workspaces {
+	border-radius: 0.2rem 0 0 0.2rem;
+	margin: 0 0 0 2px;
+}
+#workspaces button {
+	margin: 0 2px 0 2px;
+	padding: 0 2px 0 2px;
+	color: @text;
+}
+#workspaces button.active {
+	color: @green;
+}
+#workspaces button.urgent {
+	color: @red;
+}
+/* active window */
+#window {
+	background: @base;
+	border-radius: 0 0.2rem 0.2rem 0;
+	margin: 0 2px 0 0;
+	color: @green;
+}
+/* audio */
+#pulseaudio.muted {
+	color: @red;
+}
+/* network */
+#network.disconnected {
+	color: @red;
+}
+/* battery */
+#battery.warning {
+	color: @yellow;
+}
+#battery.critical {
+	color: @red;
+}
+#battery.charging {
+	color: @green;
+}

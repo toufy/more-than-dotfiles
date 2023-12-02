@@ -20,5 +20,7 @@ mason_lspconfig.setup({
 		lua_ls = langs.lua.handle_lua_ls,
 		-- python
 		pyright = langs.python.handle_pyright,
+		-- css
+		cssls = langs.css.handle_cssls,
 	},
 })
