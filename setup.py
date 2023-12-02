@@ -1,6 +1,7 @@
 import json
 import subprocess
-from os import path
+import sys
+from os import geteuid, path
 from typing import Any
 
 from misc import Colors
@@ -122,5 +123,9 @@ def main_menu():
             print("")
             pass
 
+
+if geteuid() == 0:
+    print(color("do not run this as root.\nwhen necessary, the scripts will use sudo.", False))
+    sys.exit(1)
 
 main_menu()
