@@ -22,5 +22,7 @@ mason_lspconfig.setup({
 		pyright = langs.python.handle_pyright,
 		-- css
 		cssls = langs.css.handle_cssls,
+		-- java
+		jdtls = langs.java.handle_jdtls,
 	},
 })

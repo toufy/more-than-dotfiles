@@ -2,7 +2,7 @@
 	// ---bar--- //
 	"layer": "top",
 	"position": "top",
-	"modules-left": ["hyprland/workspaces", "hyprland/window"],
+	"modules-left": ["hyprland/workspaces", "hyprland/window", "backlight"],
 	"modules-center": ["clock"],
 	"modules-right": ["pulseaudio", "network", "battery"],
 
@@ -30,6 +30,11 @@
 		"format": "   {}",
 		"max-length": 60
 	},
+	// screen brightness
+	"backlight": {
+		"format": "{percent}% {icon}",
+		"format-icons": ["󰹐 ", "󱩎 ", "󱩏 ", "󱩐 ", "󱩑 ", "󱩒 ", "󱩓 ", "󱩔 ", "󱩕 ", "󱩖 ", "󰛨 "]
+	},
 	// time and date
 	"clock": {
 		"format": "{:%A, %B %d - %T}",
@@ -52,10 +57,10 @@
 		"format-icons": {
 			"default": ["󰕿", "󰖀", "󰕾"]
 		},
-		"scroll-step": 5,
+		"scroll-step": 1,
 		"on-click": "pamixer -t",
-		"on-scroll-up": "pamixer -i 5",
-		"on-scroll-down": "pamixer -d 5",
+		"on-scroll-up": "pamixer -i 1",
+		"on-scroll-down": "pamixer -d 1",
 		"on-click-right": "pavucontrol"
 	},
 	// wifi

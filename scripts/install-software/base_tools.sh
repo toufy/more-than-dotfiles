@@ -10,5 +10,5 @@ if command -v vim >/dev/null 2>&1; then
     done
 fi
 
-sudo pacman -S --needed --noconfirm neovim npm gcc python-pip lxqt-policykit-agent \
+sudo pacman -S --needed --noconfirm neovim npm gcc python-pip lxqt-policykit \
     waybar mako udiskie swaybg syncthing kitty swaylock zenity git wget bat exa

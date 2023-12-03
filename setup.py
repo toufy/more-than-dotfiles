@@ -74,7 +74,7 @@ def action_script(actions: dict[str, dict[str, bool]], opt: str):
             print(color("0: back"))
             n = int(input(color("option: ")))
             if n == 0:
-                break
+                return actions
             elif n <= len(actions):
                 action_key = get_key(n, actions)
                 script = f'{opt.replace(" ", "-")}/{action_key.replace(" ", "_")}.sh'
@@ -88,7 +88,6 @@ def action_script(actions: dict[str, dict[str, bool]], opt: str):
                             False,
                         )
                     )
-                return actions
             else:
                 raise ValueError
         except ValueError:
